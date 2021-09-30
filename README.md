@@ -1,7 +1,7 @@
 # Steamr
 
 ## Idee
-Steamr ist eine App die einem erlaubt diverse öffentlich einsehbare Daten von einem [Steam Community](https://steamcommunity.com/) Profil anzuzeigen. Dazu kann auf der Startseite ein Profil-ID eingegeben werden, woraufhin damit verbundene Daten geladen werden. Da das eingeben einer langen ID mühsam ist werden die früher eingegebenen IDs lokal gespeichert und zur Auswahl angezeigt.
+Steamr ist eine App, die einem erlaubt diverse öffentlich einsehbare Daten von einem [Steam Community](https://steamcommunity.com/) Profil anzuzeigen. Dazu kann auf der Startseite eine Profil-ID eingegeben werden, woraufhin damit verbundene Daten geladen werden. Da das Eingeben einer langen ID mühsam ist, werden die früher eingegebenen IDs lokal gespeichert und zur Auswahl angezeigt.
 
 ## Punkte
 Wir versuchen zu zweit folgende Punkte für das Testat zu erreichen:
