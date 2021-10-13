@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Steamr</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="view_header">Darstellung</string>
+    <string name="theme_title">Farbschema</string>
+</resources>
