@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Steamr</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="view_header">View</string>
+
+    <!--  Preferences -->
+    <string name="theme_title">Theme</string>
 </resources>

@@ -11,7 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Steamr">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
+    <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,5 +24,12 @@
             </intent-filter>
         </activity>
     </application>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
 
 </manifest>
