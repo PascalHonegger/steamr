@@ -2,6 +2,7 @@ package ch.ost.mge.steamr.activities
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import androidx.preference.PreferenceFragmentCompat
@@ -22,6 +23,15 @@ class SettingsActivity : AppCompatActivity() {
                 setReorderingAllowed(true)
             }
         }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        android.R.id.home -> {
+            finish()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
     }
 
     class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {

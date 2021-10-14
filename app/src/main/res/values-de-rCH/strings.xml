@@ -4,4 +4,11 @@
     <string name="title_activity_settings">Einstellungen</string>
     <string name="view_header">Darstellung</string>
     <string name="theme_title">Farbschema</string>
+    <string name="settings_menu">Einstellungen</string>
+    <string name="settings_menu_description">Steamr Einstellungen</string>
+    <string name="view_profile">Profil ansehen</string>
+    <string name="steam_id">Steam ID</string>
+    <string name="light_theme">Helles Farbschema</string>
+    <string name="dark_theme">Dunkles Farbschema</string>
+    <string name="system_theme">System Farbschema (Standard)</string>
 </resources>

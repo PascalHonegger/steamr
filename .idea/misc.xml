@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.5166666666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.49" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.3723958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2638687521491974" />
         <entry key="app/src/main/res/layout/settings_activity.xml" value="0.30364583333333334" />
+        <entry key="app/src/main/res/layout/steamid_row_item.xml" value="0.30364583333333334" />
+        <entry key="app/src/main/res/menu/top_app_bar.xml" value="0.5380208333333333" />
       </map>
     </option>
   </component>
