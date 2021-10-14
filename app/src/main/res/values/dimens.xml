@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="steam_id_item_height">64dp</dimen>
+    <dimen name="margin_page">16dp</dimen>
+    <dimen name="margin_between_elements">16dp</dimen>
+</resources>

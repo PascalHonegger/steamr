@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Steamr</string>
     <string name="title_activity_settings">Settings</string>
-
-    <!-- Preference Titles -->
     <string name="view_header">View</string>
-
-    <!--  Preferences -->
     <string name="theme_title">Theme</string>
+    <string name="settings_menu">Settings</string>
+    <string name="settings_menu_description">Settings of Steamr</string>
+    <string name="view_profile">View Profile</string>
+    <string name="steam_id">Steam ID</string>
+    <string name="light_theme">Light Theme</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="system_theme">System Theme (default)</string>
 </resources>
