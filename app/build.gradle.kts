@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    kotlin("plugin.serialization") version "1.5.31"
 }
 
 android {
@@ -46,7 +47,10 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.1.1")
     implementation("androidx.fragment:fragment-ktx:1.3.6")
     implementation("com.android.volley:volley:1.2.1")
+    implementation("io.github.pdvrieze.xmlutil:serialization-android:0.83.0")
+    implementation("org.jetbrains.kotlin:kotlin-serialization:1.5.31")
     testImplementation("junit:junit:4.13.2")
+    testImplementation("net.sf.kxml:kxml2:2.3.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 }
