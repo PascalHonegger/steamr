@@ -8,3 +8,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Build the app
         run: ./gradlew build
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v2
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: '**/build/test-results/test*/TEST-*.xml'
