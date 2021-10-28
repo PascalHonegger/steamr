@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.core.widget.addTextChangedListener
@@ -45,6 +46,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.viewProfileButton.isEnabled = false
         binding.editTextSteamId.addTextChangedListener { binding.viewProfileButton.isEnabled = !it.isNullOrBlank() }
+        binding.editTextSteamId.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+                if (binding.viewProfileButton.isEnabled) { binding.viewProfileButton.performClick() }
+                true
+            } else {
+                false
+            }
+        }
 
         binding.viewProfileButton.setOnClickListener {
             storeSteamId()

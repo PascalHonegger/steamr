@@ -10,27 +10,28 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_page"
-        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:layout_marginEnd="@dimen/margin_page"
         android:ems="10"
         android:hint="@string/steam_id"
+        android:imeOptions="actionGo"
         android:importantForAccessibility="no"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/oldSteamIdRecyclerView"
-        app:layout_constraintEnd_toStartOf="@+id/viewProfileButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/viewProfileButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_page"
-        android:text="@string/view_profile"
         android:enabled="false"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextSteamId"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextSteamId" />
+        android:text="@string/view_profile"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSteamId"
+        app:layout_constraintStart_toStartOf="@+id/editTextSteamId"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSteamId" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/oldSteamIdRecyclerView"
@@ -38,6 +39,7 @@
         android:layout_height="300dp"
         android:layout_marginStart="@dimen/margin_between_elements"
         android:layout_marginEnd="@dimen/margin_page"
+        android:contentDescription="@string/steam_id_history_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
