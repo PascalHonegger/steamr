@@ -12,4 +12,5 @@
     <string name="dark_theme">Dunkles Farbschema</string>
     <string name="system_theme">System Farbschema (Standard)</string>
     <string name="avatar_image">Avatar Bild</string>
+    <string name="steam_id_history_description">Zuvor eingegebene Steam IDs</string>
 </resources>
