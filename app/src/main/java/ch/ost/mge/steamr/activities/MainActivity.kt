@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         binding.oldSteamIdRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.oldSteamIdRecyclerView.adapter = steamIdAdapter
 
+        binding.viewProfileButton.isEnabled = false
         binding.editTextSteamId.addTextChangedListener { binding.viewProfileButton.isEnabled = !it.isNullOrBlank() }
 
         binding.viewProfileButton.setOnClickListener {
