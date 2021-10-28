@@ -12,7 +12,17 @@ class SteamProfileUtilTest {
 
     @Test
     fun `given valid xml parseProfile returns valid profile`() {
-        val xml = ClassLoader.getSystemResource("example.xml").readText()
+        val xml = ClassLoader.getSystemResource("full_profile.xml").readText()
+
+        val profile = parseProfile(xml)
+
+        assertNotNull(profile)
+        println(profile)
+    }
+
+    @Test
+    fun `given minimal valid xml parseProfile returns valid profile`() {
+        val xml = ClassLoader.getSystemResource("minimal_profile.xml").readText()
 
         val profile = parseProfile(xml)
 

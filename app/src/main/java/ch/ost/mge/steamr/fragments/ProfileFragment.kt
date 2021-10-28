@@ -1,26 +1,34 @@
 package ch.ost.mge.steamr.fragments
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import ch.ost.mge.steamr.databinding.FragmentProfileBinding
 import ch.ost.mge.steamr.util.Profile
+import java.net.URL
+import java.util.concurrent.CompletableFuture
 
 private const val ARG_PROFILE = "profile";
 
 class ProfileFragment : Fragment() {
-    private var profile: Profile? = null
+    private lateinit var profile: Profile
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            profile = it.getParcelable(ARG_PROFILE)
+        val profile = arguments?.getParcelable<Profile>(ARG_PROFILE)
+        if (profile == null) {
+            Log.wtf("ProfileFragment", "Cannot display a profile fragment without a profile")
+            activity?.supportFragmentManager?.popBackStack()
+            return
         }
+        this.profile = profile
     }
 
     override fun onCreateView(
@@ -30,13 +38,11 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        profile.let {
-            if (it == null) {
-                Log.wtf("ProfileFragment", "Cannot display a profile fragment without a profile")
-            } else {
-                activity?.title = it.username
-            }
-        }
+        setProfileImage()
+        requireActivity().title = profile.username ?: ""
+        binding.onlineStateTextView.text = profile.onlineState ?: ""
+        binding.vacBannedTextView.text = "Is ${ if(profile.isVacBanned) "" else "not"} VAC banned"
+        binding.summaryTextView.text = HtmlCompat.fromHtml(profile.summary ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
 
         return binding.root
     }
@@ -44,6 +50,19 @@ class ProfileFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setProfileImage() {
+        if (profile.avatarUrl == null) {
+            return
+        }
+        CompletableFuture.runAsync {
+            val url = URL(profile.avatarUrl)
+            val bitmap = BitmapFactory.decodeStream(url.openStream())
+            requireActivity().runOnUiThread {
+                binding.profileImageView.setImageBitmap(bitmap)
+            }
+        }
     }
 
     companion object {
