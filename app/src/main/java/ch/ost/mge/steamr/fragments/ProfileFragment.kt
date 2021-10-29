@@ -58,9 +58,11 @@ class ProfileFragment : Fragment() {
         }
         CompletableFuture.runAsync {
             val url = URL(profile.avatarUrl)
-            val bitmap = BitmapFactory.decodeStream(url.openStream())
-            requireActivity().runOnUiThread {
-                binding.profileImageView.setImageBitmap(bitmap)
+            url.openStream().use {
+                val bitmap = BitmapFactory.decodeStream(it)
+                requireActivity().runOnUiThread {
+                    binding.profileImageView.setImageBitmap(bitmap)
+                }
             }
         }
     }
