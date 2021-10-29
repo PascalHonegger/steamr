@@ -38,7 +38,7 @@ data class Profile(
     @SerialName("vacBanned") private val vacBanned: Int?
 ) : Parcelable {
     val creationDate by lazy { memberSince?.let { LocalDate.parse(it, datePattern) } }
-    val isVacBanned by lazy { vacBanned == 1 }
+    val isVacBanned by lazy { vacBanned != null && vacBanned != 0 }
 
     constructor(parcel: Parcel) : this(
         parcel.readLong(),

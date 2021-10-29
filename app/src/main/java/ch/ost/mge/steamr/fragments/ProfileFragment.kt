@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
+import ch.ost.mge.steamr.R
 import ch.ost.mge.steamr.databinding.FragmentProfileBinding
 import ch.ost.mge.steamr.util.Profile
 import java.net.URL
@@ -41,8 +42,12 @@ class ProfileFragment : Fragment() {
         setProfileImage()
         requireActivity().title = profile.username ?: ""
         binding.onlineStateTextView.text = profile.onlineState ?: ""
-        binding.vacBannedTextView.text = "Is ${ if(profile.isVacBanned) "" else "not"} VAC banned"
-        binding.summaryTextView.text = HtmlCompat.fromHtml(profile.summary ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
+        binding.vacBannedTextView.text = getString(
+            if (profile.isVacBanned) R.string.vac_banned
+            else R.string.not_vac_banned
+        )
+        binding.summaryTextView.text =
+            HtmlCompat.fromHtml(profile.summary ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
 
         return binding.root
     }
