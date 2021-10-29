@@ -2,8 +2,10 @@ package ch.ost.mge.steamr.activities
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
@@ -21,6 +23,8 @@ import nl.adaptivity.xmlutil.ExperimentalXmlUtilApi
 private const val REQUEST_TAG = "GetSteamProfileTag"
 
 private const val STEAM_PROFILE_ID = "SteamProfileId"
+
+private val URL_REGEX = Regex("""^https?://steamcommunity\.com""", RegexOption.IGNORE_CASE)
 
 @ExperimentalXmlUtilApi
 @ExperimentalSerializationApi
@@ -56,7 +60,14 @@ class ProfileActivity : AppCompatActivity() {
         // https://steamcommunity.com/id/stupsi?xml=1
         // https://steamcommunity.com/profiles/76561198425286017?xml=1
         val url =
-            if (id.isDigitsOnly()) "https://steamcommunity.com/profiles/$id?xml=1" else "https://steamcommunity.com/id/$id?xml=1"
+            when {
+                id.isDigitsOnly() -> "https://steamcommunity.com/profiles/$id?xml=1"
+                id.contains(URL_REGEX) -> Uri.parse(id).buildUpon()
+                    .appendQueryParameter("xml", "1")
+                    .scheme("https")
+                    .toString()
+                else -> "https://steamcommunity.com/id/$id?xml=1"
+            }
 
         val request = StringRequest(
             Request.Method.GET, url,
