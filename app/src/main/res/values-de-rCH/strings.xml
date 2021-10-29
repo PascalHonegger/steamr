@@ -13,4 +13,6 @@
     <string name="system_theme">System Farbschema (Standard)</string>
     <string name="avatar_image">Avatar Bild</string>
     <string name="steam_id_history_description">Zuvor eingegebene Steam IDs</string>
+    <string name="vac_banned">Hat einen VAC-Ausschluss 👎</string>
+    <string name="not_vac_banned">Hat keinen VAC-Ausschluss 👍</string>
 </resources>

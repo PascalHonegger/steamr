@@ -12,4 +12,6 @@
     <string name="system_theme">System Theme (default)</string>
     <string name="avatar_image">Avatar Image</string>
     <string name="steam_id_history_description">Previously entered Steam ID\'s</string>
+    <string name="vac_banned">Has a VAC ban 👎</string>
+    <string name="not_vac_banned">Has no VAC ban 👍</string>
 </resources>
