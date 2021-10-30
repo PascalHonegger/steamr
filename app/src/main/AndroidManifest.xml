@@ -14,7 +14,14 @@
         android:theme="@style/Theme.Steamr">
         <activity
             android:name=".activities.ProfileActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="steamcommunity.com" android:scheme="https" android:pathPrefix="/profiles" />
+                <data android:host="steamcommunity.com" android:scheme="https" android:pathPrefix="/id" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.SettingsActivity"
             android:exported="false"
