@@ -13,6 +13,7 @@ import androidx.fragment.app.commit
 import ch.ost.mge.steamr.databinding.ActivityProfileBinding
 import ch.ost.mge.steamr.fragments.ProfileFragment
 import ch.ost.mge.steamr.fragments.ProfileNotFoundFragment
+import ch.ost.mge.steamr.util.Profile
 import ch.ost.mge.steamr.util.parseProfile
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -32,6 +33,7 @@ private val URL_REGEX = Regex("""^https?://steamcommunity\.com""", RegexOption.I
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private lateinit var requestQueue: RequestQueue
+    private var profile: Profile? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +45,19 @@ class ProfileActivity : AppCompatActivity() {
             return
         }
 
+        val profile = savedInstanceState?.getParcelable<Profile>("profile")
+        this.profile = profile
+
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         requestQueue = Volley.newRequestQueue(this)
 
-        fetchProfile(profileId)
+        if (profile == null) {
+            fetchAndDisplayProfile(profileId)
+        } else {
+            displayProfile(profile)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
@@ -65,7 +73,12 @@ class ProfileActivity : AppCompatActivity() {
         requestQueue.cancelAll(REQUEST_TAG)
     }
 
-    private fun fetchProfile(id: String) {
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable("profile", profile)
+    }
+
+    private fun fetchAndDisplayProfile(id: String) {
         // Examples of valid URLs
         // https://steamcommunity.com/id/stupsi?xml=1
         // https://steamcommunity.com/profiles/76561198425286017?xml=1
@@ -83,12 +96,9 @@ class ProfileActivity : AppCompatActivity() {
             Request.Method.GET, url,
             {
                 try {
-                    val parsed = parseProfile(it)
-                    supportFragmentManager.commit {
-                        setReorderingAllowed(true)
-                        val fragment = ProfileFragment.newProfileFragment(parsed)
-                        replace(binding.fragmentContainerView.id, fragment)
-                    }
+                    val profile = parseProfile(it)
+                    this.profile = profile
+                    displayProfile(profile)
                 } catch (e: Throwable) {
                     Log.e("Profile", "Error while parsing profile response", e)
                     supportFragmentManager.commit {
@@ -103,6 +113,14 @@ class ProfileActivity : AppCompatActivity() {
             })
         request.tag = REQUEST_TAG
         requestQueue.add(request)
+    }
+
+    private fun displayProfile(profile: Profile) {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            val fragment = ProfileFragment.newProfileFragment(profile)
+            replace(binding.fragmentContainerView.id, fragment)
+        }
     }
 
     companion object {
