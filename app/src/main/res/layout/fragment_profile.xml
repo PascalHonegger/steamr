@@ -16,13 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/summaryTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_between_elements"
+        android:layout_marginBottom="@dimen/margin_page"
+        android:layout_marginEnd="@dimen/margin_page"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/avatarImageView"
-        app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/avatarImageView">
+
+        <TextView
+            android:id="@+id/summaryTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/onlineStateTextView"
