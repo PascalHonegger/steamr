@@ -35,7 +35,7 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val profileId = intent.extras?.getString(STEAM_PROFILE_ID)
+        val profileId = intent.extras?.getString(STEAM_PROFILE_ID) ?: intent.dataString
         if (profileId == null) {
             Log.wtf("Profile", "Cannot display profile without profile ID, finishing activity")
             finish()
