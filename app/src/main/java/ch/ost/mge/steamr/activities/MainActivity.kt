@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun readSteamIds() {
-        steamIds.addAll(preferences.getString(STEAM_ID_HISTORY, "")!!.split(";"))
+        steamIds.addAll(preferences.getString(STEAM_ID_HISTORY, "")!!.split(";").filter { it.isNotBlank() })
         steamIdAdapter.submitList(steamIds.toList())
     }
 
