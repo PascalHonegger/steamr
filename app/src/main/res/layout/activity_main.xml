@@ -5,6 +5,21 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/oldSteamIdRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_page"
+        android:layout_marginBottom="@dimen/margin_between_elements"
+        android:layout_marginStart="@dimen/margin_page"
+        android:layout_marginEnd="@dimen/margin_page"
+        android:contentDescription="@string/steam_id_history_description"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSteamId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editTextSteamId"
         android:layout_width="0dp"
@@ -18,29 +33,21 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/oldSteamIdRecyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/viewProfileButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/viewProfileButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_page"
+        android:layout_marginEnd="@dimen/margin_page"
         android:enabled="false"
         android:text="@string/view_profile"
-        app:layout_constraintEnd_toEndOf="@+id/editTextSteamId"
-        app:layout_constraintStart_toStartOf="@+id/editTextSteamId"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSteamId" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/oldSteamIdRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="@dimen/margin_between_elements"
-        android:layout_marginEnd="@dimen/margin_page"
-        android:contentDescription="@string/steam_id_history_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
