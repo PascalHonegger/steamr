@@ -14,4 +14,5 @@
     <string name="steam_id_history_description">Previously entered Steam ID\'s</string>
     <string name="vac_banned">Has a VAC ban 👎</string>
     <string name="not_vac_banned">Has no VAC ban 👍</string>
+    <string name="profile_not_found">Profile under %1$s not found</string>
 </resources>

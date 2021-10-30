@@ -5,13 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.commit
 import ch.ost.mge.steamr.databinding.ActivityProfileBinding
 import ch.ost.mge.steamr.fragments.ProfileFragment
+import ch.ost.mge.steamr.fragments.ProfileNotFoundFragment
 import ch.ost.mge.steamr.util.parseProfile
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -79,10 +79,13 @@ class ProfileActivity : AppCompatActivity() {
                         val fragment = ProfileFragment.newProfileFragment(parsed)
                         replace(binding.fragmentContainerView.id, fragment)
                     }
-                    Toast.makeText(this, parsed.toString(), Toast.LENGTH_LONG).show()
                 } catch (e: Throwable) {
                     Log.e("Profile", "Error while parsing profile response", e)
-                    Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+                    supportFragmentManager.commit {
+                        setReorderingAllowed(true)
+                        val fragment = ProfileNotFoundFragment.newProfileNotFoundFragment(id)
+                        replace(binding.fragmentContainerView.id, fragment)
+                    }
                 }
             },
             {
