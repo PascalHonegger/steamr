@@ -37,7 +37,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        steamIdAdapter = SteamIdAdapter { binding.editTextSteamId.setText(it) }
+        steamIdAdapter = SteamIdAdapter(
+            onClick = { binding.editTextSteamId.setText(it) },
+            onDelete = { removeSteamId(it) },
+        )
 
         readSteamIds()
 
@@ -81,6 +84,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun storeSteamId() {
         steamIds.add(binding.editTextSteamId.text.toString())
+        preferences.edit {
+            putString(STEAM_ID_HISTORY, steamIds.joinToString(";"))
+        }
+        steamIdAdapter.submitList(steamIds.toList())
+    }
+
+    private fun removeSteamId(id: String) {
+        steamIds.remove(id)
         preferences.edit {
             putString(STEAM_ID_HISTORY, steamIds.joinToString(";"))
         }

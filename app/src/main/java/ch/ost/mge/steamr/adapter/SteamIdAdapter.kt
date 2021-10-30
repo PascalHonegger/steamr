@@ -8,17 +8,22 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import ch.ost.mge.steamr.R
+import com.google.android.material.button.MaterialButton
 
-class SteamIdAdapter(private val onClick: (String) -> Unit) :
+class SteamIdAdapter(private val onClick: (String) -> Unit, private val onDelete: (String) -> Unit) :
     ListAdapter<String, SteamIdAdapter.ViewHolder>(SteamIdDiffCallback) {
 
-    class ViewHolder(view: View, val onClick: (String) -> Unit) : RecyclerView.ViewHolder(view) {
-        private val textView: TextView = view.findViewById(R.id.textView)
+    class ViewHolder(view: View, val onClick: (String) -> Unit, val onDelete: (String) -> Unit) : RecyclerView.ViewHolder(view) {
+        private val textView: TextView = view.findViewById(R.id.oldSteamId)
+        private val deleteButton: MaterialButton = view.findViewById(R.id.deleteOldSteamId)
         private var currentSteamId: String? = null
 
         init {
             textView.setOnClickListener {
                 currentSteamId?.let { onClick(it) }
+            }
+            deleteButton.setOnClickListener {
+                currentSteamId?.let { onDelete(it) }
             }
         }
 
@@ -32,7 +37,7 @@ class SteamIdAdapter(private val onClick: (String) -> Unit) :
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.steam_id_row_item, viewGroup, false)
 
-        return ViewHolder(view, onClick)
+        return ViewHolder(view, onClick, onDelete)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
