@@ -1,8 +1,10 @@
 package ch.ost.mge.steamr.fragments
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,9 +22,11 @@ class ProfileFragment : Fragment() {
     private lateinit var profile: Profile
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+    private var avatarBitmap: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        avatarBitmap = savedInstanceState?.getParcelable("avatarBitmap")
         val profile = arguments?.getParcelable<Profile>(ARG_PROFILE)
         if (profile == null) {
             Log.wtf("ProfileFragment", "Cannot display a profile fragment without a profile")
@@ -39,7 +43,7 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        setProfileImage()
+        setAvatar()
         requireActivity().title = profile.username ?: ""
         binding.onlineStateTextView.text = profile.onlineState ?: ""
         binding.vacBannedTextView.text = getString(
@@ -57,16 +61,26 @@ class ProfileFragment : Fragment() {
         _binding = null
     }
 
-    private fun setProfileImage() {
-        if (profile.avatarUrl == null) {
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable("avatarBitmap", avatarBitmap)
+    }
+
+    private fun setAvatar() {
+        if (avatarBitmap != null) {
+            binding.avatarImageView.setImageBitmap(avatarBitmap)
+            return
+        }
+        val avatarUrl = profile.avatarUrl
+        if (avatarUrl?.matches(Patterns.WEB_URL.toRegex()) != true) {
             return
         }
         CompletableFuture.runAsync {
-            val url = URL(profile.avatarUrl)
+            val url = URL(avatarUrl)
             url.openStream().use {
                 val bitmap = BitmapFactory.decodeStream(it)
                 requireActivity().runOnUiThread {
-                    binding.profileImageView.setImageBitmap(bitmap)
+                    binding.avatarImageView.setImageBitmap(bitmap)
                 }
             }
         }
