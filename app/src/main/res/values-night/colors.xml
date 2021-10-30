@@ -1,8 +1,8 @@
 <resources>
     <color name="primaryColor">#37474f</color>
-    <color name="primaryVariantColor">#102027</color>
+    <color name="primaryVariantColor">#62727b</color>
     <color name="secondaryColor">#29b6f6</color>
-    <color name="secondaryVariantColor">#0086c3</color>
+    <color name="secondaryVariantColor">#73e8ff</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
 </resources>
