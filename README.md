@@ -23,7 +23,7 @@ Die einzige Einstellung ist das Farbschema der App, welches explizit auf Light o
 
 ## Screenshots
 | Light Theme                                  | Dark Theme                                 |
-|----------------------------------------------|-------------------------------------------:|
+|----------------------------------------------|--------------------------------------------|
 | ![Start Light](/media/start_light.png)       | ![Start Dark](/media/start_dark.png)       |
 | ![Settings Light](/media/settings_light.png) | ![Settings Dark](/media/settings_dark.png) |
 | ![Profile Light](/media/profile_light.png)   | ![Profile Dark](/media/profile_dark.png)   |
@@ -41,7 +41,7 @@ Wir haben ein Light- und Darktheme, wobei das Farbschema an Steam angelehnt ist.
 
 ### Kotlin
 Technisch verwenden wir ViewBindings und ausschliesslich Kotlin.
-Ebenfalls haben wir unsere Gradle files von Groovy nach Kotlin Script migriert und verwenden die neusten Versionen alles dependencies.
+Ebenfalls haben wir unsere Gradle files von Groovy nach Kotlin Script migriert und verwenden die neusten Versionen aller dependencies.
 
 ### Tests
 Wir haben versucht sinnvolle Unit- und Android-Tests zu schreiben.
@@ -52,7 +52,7 @@ Wir haben auch eine kleine CI-Pipeline in GitHub konfiguriert, welche unsere Uni
 Wir versuchen zu zweit folgende Punkte für das Testat zu erreichen:
 
 | Feature                 | Punkte |
-|-------------------------|-------:|
+|-------------------------|--------|
 | Kotlin                  | 6P     |
 | Profil-ID Eingabe       | 2P     |
 | Profil-Ansicht          | 2P     |
