@@ -59,8 +59,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.viewProfileButton.setOnClickListener {
-            storeSteamId()
-            startActivity(ProfileActivity.createIntent(this, binding.editTextSteamId.text.trim().toString()))
+            binding.editTextSteamId.let {
+                it.setText(it.text.trim())
+                storeSteamId()
+                startActivity(ProfileActivity.createIntent(this, it.text.toString()))
+            }
         }
     }
 
