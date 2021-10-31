@@ -21,6 +21,13 @@ Die Beschreibung und der Spiele-Titel können HTML enthalten und werden dementsp
 Benutzer haben die Möglichkeit einstellungen von Steamr zu verwalten.
 Die einzige Einstellung ist das Farbschema der App, welches explizit auf Light oder Dark gestellt werden kann.
 
+## Screenshots
+| Light Theme                                  | Dark Theme                                 |
+|----------------------------------------------|-------------------------------------------:|
+| ![Start Light](/media/start_light.png)       | ![Start Dark](/media/start_dark.png)       |
+| ![Settings Light](/media/settings_light.png) | ![Settings Dark](/media/settings_dark.png) |
+| ![Profile Light](/media/profile_light.png)   | ![Profile Dark](/media/profile_dark.png)   |
+
 ## Weiteres
 
 ### Intent Filter
