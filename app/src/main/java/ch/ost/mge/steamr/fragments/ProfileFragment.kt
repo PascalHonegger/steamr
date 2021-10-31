@@ -45,7 +45,7 @@ class ProfileFragment : Fragment() {
         requireActivity().title = profile.username ?: ""
 
         setImageURL(profile.avatarUrl, binding.avatarImageView)
-        setImageURL(profile.inGameInfo?.bannerUrl, binding.gameIconImageView)
+        setImageURL(profile.inGameInfo?.bannerUrl, binding.gameBannerImageView)
 
         binding.onlineStateTextView.text = HtmlCompat.fromHtml(profile.onlineState ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
         binding.vacBannedTextView.text = getString(
