@@ -12,11 +12,34 @@ Unterhalb der Eingabe werden vorherige Eingaben dargestellt, welche bei einem Kl
 Vergangene Inputs können über den Mülleimer gelöscht werden.
 
 ## Profil-Ansicht
-Zuerst wird ein Load-Indicator angezeigt. Falls keine Daten geladen werden konnent, wird ein Fehler angezeigt.
+Zuerst wird ein Load-Indicator angezeigt.
+Falls keine Daten geladen werden konnent, wird ein Fehler angezeigt.
+In der Profil-Ansicht werden einige Daten des Benutzer dargestellt, falls diese vorhanden sind.
+Die Beschreibung und der Spiele-Titel können HTML enthalten und werden dementsprechend verarbeitet.
 
 ## Einstellungen
 Benutzer haben die Möglichkeit einstellungen von Steamr zu verwalten.
-Die einzige Einstellung hierbei ist das Farbschema der App, welches explizit auf Light oder Dark gestellt werden kann.
+Die einzige Einstellung ist das Farbschema der App, welches explizit auf Light oder Dark gestellt werden kann.
+
+## Weiteres
+
+### Intent Filter
+Zusätzlich kann ein Benutzer im Browser ein Steam-Profil öffnen und die URL mit der `Steamr` App öffnen.
+
+### Mehrsprachigkeit
+Wir unterstützen Englisch und Deutsch (CH).
+
+### Light- und Darktheme
+Wir haben ein Light- und Darktheme, wobei das Farbschema an Steam angelehnt ist.
+
+### Kotlin
+Technisch verwenden wir ViewBindings und ausschliesslich Kotlin.
+Ebenfalls haben wir unsere Gradle files von Groovy nach Kotlin Script migriert und verwenden die neusten Versionen alles dependencies.
+
+### Tests
+Wir haben versucht sinnvolle Unit- und Android-Tests zu schreiben.
+Da unsere grösste Logik in der Startseite und im Parsen von XML liegt sind diese zwei Komponenten getestet. 
+Wir haben auch eine kleine CI-Pipeline in GitHub konfiguriert, welche unsere Unit-Tests automatisch ausführt.
 
 ## Punkte
 Wir versuchen zu zweit folgende Punkte für das Testat zu erreichen:
