@@ -16,4 +16,5 @@
     <string name="vac_banned">Hat einen VAC-Ausschluss 👎</string>
     <string name="not_vac_banned">Hat keinen VAC-Ausschluss 👍</string>
     <string name="profile_not_found">Profil unter %1$s nicht gefunden</string>
+    <string name="member_since">Mitglied seit %1$s</string>
 </resources>

@@ -14,6 +14,8 @@ import ch.ost.mge.steamr.R
 import ch.ost.mge.steamr.databinding.FragmentProfileBinding
 import ch.ost.mge.steamr.util.Profile
 import java.net.URL
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import java.util.concurrent.CompletableFuture
 
 private const val ARG_PROFILE = "profile";
@@ -50,6 +52,10 @@ class ProfileFragment : Fragment() {
             if (profile.isVacBanned) R.string.vac_banned
             else R.string.not_vac_banned
         )
+        val creationDate = profile.creationDate
+        if (creationDate != null) {
+            binding.creationDateTextView.text = getString(R.string.member_since, creationDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)))
+        }
         binding.summaryTextView.text =
             HtmlCompat.fromHtml(profile.summary ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
 
