@@ -17,6 +17,7 @@ class SteamProfileUtilTest {
         val profile = parseProfile(xml)
 
         assertNotNull(profile)
+        assertNotNull(profile.inGameInfo)
         println(profile)
     }
 

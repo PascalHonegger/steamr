@@ -1,7 +1,6 @@
 package ch.ost.mge.steamr.fragments
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -13,10 +12,10 @@ import androidx.fragment.app.Fragment
 import ch.ost.mge.steamr.R
 import ch.ost.mge.steamr.databinding.FragmentProfileBinding
 import ch.ost.mge.steamr.util.Profile
-import java.net.URL
+import ch.ost.mge.steamr.util.VolleySingleton
+import com.android.volley.toolbox.NetworkImageView
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import java.util.concurrent.CompletableFuture
 
 private const val ARG_PROFILE = "profile";
 
@@ -24,11 +23,9 @@ class ProfileFragment : Fragment() {
     private lateinit var profile: Profile
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private var avatarBitmap: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        avatarBitmap = savedInstanceState?.getParcelable("avatarBitmap")
         val profile = arguments?.getParcelable<Profile>(ARG_PROFILE)
         if (profile == null) {
             Log.wtf("ProfileFragment", "Cannot display a profile fragment without a profile")
@@ -45,17 +42,21 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        setAvatar()
         requireActivity().title = profile.username ?: ""
+
+        setImageURL(profile.avatarUrl, binding.avatarImageView)
+        setImageURL(profile.inGameInfo?.bannerUrl, binding.gameIconImageView)
+
         binding.onlineStateTextView.text = HtmlCompat.fromHtml(profile.onlineState ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
         binding.vacBannedTextView.text = getString(
             if (profile.isVacBanned) R.string.vac_banned
             else R.string.not_vac_banned
         )
-        val creationDate = profile.creationDate
-        if (creationDate != null) {
-            binding.creationDateTextView.text = getString(R.string.member_since, creationDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)))
+
+        profile.creationDate?.let {
+            binding.creationDateTextView.text = getString(R.string.member_since, it.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)))
         }
+
         binding.summaryTextView.text =
             HtmlCompat.fromHtml(profile.summary ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
 
@@ -67,29 +68,9 @@ class ProfileFragment : Fragment() {
         _binding = null
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putParcelable("avatarBitmap", avatarBitmap)
-    }
-
-    private fun setAvatar() {
-        if (avatarBitmap != null) {
-            binding.avatarImageView.setImageBitmap(avatarBitmap)
-            return
-        }
-        val avatarUrl = profile.avatarUrl
-        if (avatarUrl?.matches(Patterns.WEB_URL.toRegex()) != true) {
-            return
-        }
-        CompletableFuture.runAsync {
-            val url = URL(avatarUrl)
-            url.openStream().use {
-                val bitmap = BitmapFactory.decodeStream(it)
-                requireActivity().runOnUiThread {
-                    binding.avatarImageView.setImageBitmap(bitmap)
-                    avatarBitmap = bitmap
-                }
-            }
+    private fun setImageURL(url: String?, view: NetworkImageView) {
+        if (url?.matches(Patterns.WEB_URL.toRegex()) == true) {
+            view.setImageUrl(url, VolleySingleton.getInstance(requireContext()).imageLoader)
         }
     }
 

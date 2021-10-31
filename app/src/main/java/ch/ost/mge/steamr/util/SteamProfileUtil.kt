@@ -25,6 +25,33 @@ fun parseProfile(xmlData: String): Profile {
 }
 
 @Serializable
+@SerialName("inGameInfo")
+data class InGameInfo(
+    @SerialName("gameLogo") val bannerUrl: String?
+) : Parcelable {
+    constructor(parcel: Parcel) : this(parcel.readString())
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(bannerUrl)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<InGameInfo> {
+        override fun createFromParcel(parcel: Parcel): InGameInfo {
+            return InGameInfo(parcel)
+        }
+
+        override fun newArray(size: Int): Array<InGameInfo?> {
+            return arrayOfNulls(size)
+        }
+    }
+
+}
+
+@Serializable
 @SerialName("profile")
 data class Profile(
     @SerialName("steamID64") val steamId: Long,
@@ -35,7 +62,8 @@ data class Profile(
     @SerialName("realname") val realName: String?,
     @SerialName("location") val location: String?,
     @SerialName("memberSince") private val memberSince: String?,
-    @SerialName("vacBanned") private val vacBanned: Int?
+    @SerialName("vacBanned") private val vacBanned: Int?,
+    @SerialName("inGameInfo") val inGameInfo: InGameInfo?
 ) : Parcelable {
     val creationDate by lazy { memberSince?.let { LocalDate.parse(it, datePattern) } }
     val isVacBanned by lazy { vacBanned != null && vacBanned != 0 }
@@ -49,9 +77,9 @@ data class Profile(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readValue(Int::class.java.classLoader) as? Int
-    ) {
-    }
+        parcel.readValue(Int::class.java.classLoader) as? Int,
+        parcel.readParcelable(InGameInfo::class.java.classLoader)
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeLong(steamId)
@@ -63,6 +91,7 @@ data class Profile(
         parcel.writeString(location)
         parcel.writeString(memberSince)
         parcel.writeValue(vacBanned)
+        parcel.writeParcelable(inGameInfo, flags)
     }
 
     override fun describeContents(): Int {
