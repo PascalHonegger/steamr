@@ -45,7 +45,7 @@ class ProfileFragment : Fragment() {
 
         setAvatar()
         requireActivity().title = profile.username ?: ""
-        binding.onlineStateTextView.text = profile.onlineState ?: ""
+        binding.onlineStateTextView.text = HtmlCompat.fromHtml(profile.onlineState ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
         binding.vacBannedTextView.text = getString(
             if (profile.isVacBanned) R.string.vac_banned
             else R.string.not_vac_banned
