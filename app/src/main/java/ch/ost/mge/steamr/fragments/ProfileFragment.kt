@@ -81,6 +81,7 @@ class ProfileFragment : Fragment() {
                 val bitmap = BitmapFactory.decodeStream(it)
                 requireActivity().runOnUiThread {
                     binding.avatarImageView.setImageBitmap(bitmap)
+                    avatarBitmap = bitmap
                 }
             }
         }
