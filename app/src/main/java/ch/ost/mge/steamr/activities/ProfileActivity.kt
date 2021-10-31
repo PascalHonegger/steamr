@@ -110,7 +110,9 @@ class ProfileActivity : AppCompatActivity() {
             },
             {
                 Toast.makeText(this, it.localizedMessage ?: it.message, Toast.LENGTH_SHORT).show()
-            })
+            }
+        )
+        request.setShouldCache(false)
         request.tag = REQUEST_TAG
         requestQueue.add(request)
     }
