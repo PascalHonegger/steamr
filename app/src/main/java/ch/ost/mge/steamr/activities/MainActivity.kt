@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.viewProfileButton.setOnClickListener {
             storeSteamId()
-            startActivity(ProfileActivity.createIntent(this, binding.editTextSteamId.text.toString()))
+            startActivity(ProfileActivity.createIntent(this, binding.editTextSteamId.text.trim().toString()))
         }
     }
 
