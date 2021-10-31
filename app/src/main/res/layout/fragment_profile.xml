@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <ImageView
+    <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/avatarImageView"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -19,40 +19,53 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/margin_between_elements"
-        android:layout_marginBottom="@dimen/margin_page"
         android:layout_marginEnd="@dimen/margin_page"
+        android:layout_marginTop="@dimen/margin_between_elements"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/avatarImageView"
-        app:layout_constraintTop_toBottomOf="@+id/avatarImageView">
+        app:layout_constraintTop_toBottomOf="@+id/creationDateTextView">
 
         <TextView
             android:id="@+id/summaryTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/onlineStateTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_between_elements"
+        app:layout_constraintEnd_toStartOf="@+id/gameIconImageView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toTopOf="@+id/avatarImageView" />
 
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/gameIconImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/margin_page"
+        app:layout_constraintBottom_toBottomOf="@+id/onlineStateTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/onlineStateTextView" />
+
     <TextView
         android:id="@+id/vacBannedTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/creationDateTextView"
+        android:layout_marginTop="@dimen/margin_between_elements"
+        app:layout_constraintEnd_toEndOf="@+id/onlineStateTextView"
         app:layout_constraintStart_toStartOf="@+id/onlineStateTextView"
         app:layout_constraintTop_toBottomOf="@+id/onlineStateTextView" />
 
     <TextView
         android:id="@+id/creationDateTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/avatarImageView"
-        app:layout_constraintStart_toStartOf="@+id/vacBannedTextView" />
+        android:layout_marginTop="@dimen/margin_between_elements"
+        app:layout_constraintEnd_toEndOf="@+id/vacBannedTextView"
+        app:layout_constraintStart_toStartOf="@+id/vacBannedTextView"
+        app:layout_constraintTop_toBottomOf="@+id/vacBannedTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

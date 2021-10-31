@@ -14,15 +14,15 @@ import ch.ost.mge.steamr.databinding.ActivityProfileBinding
 import ch.ost.mge.steamr.fragments.ProfileFragment
 import ch.ost.mge.steamr.fragments.ProfileNotFoundFragment
 import ch.ost.mge.steamr.util.Profile
+import ch.ost.mge.steamr.util.VolleySingleton
 import ch.ost.mge.steamr.util.parseProfile
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import kotlinx.serialization.ExperimentalSerializationApi
 import nl.adaptivity.xmlutil.ExperimentalXmlUtilApi
 
-private const val REQUEST_TAG = "GetSteamProfileTag"
+private val REQUEST_TAG = Object()
 
 private const val STEAM_PROFILE_ID = "SteamProfileId"
 
@@ -32,7 +32,6 @@ private val URL_REGEX = Regex("""^https?://steamcommunity\.com""", RegexOption.I
 @ExperimentalSerializationApi
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
-    private lateinit var requestQueue: RequestQueue
     private var profile: Profile? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +50,6 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        requestQueue = Volley.newRequestQueue(this)
 
         if (profile == null) {
             fetchAndDisplayProfile(profileId)
@@ -70,7 +68,7 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        requestQueue.cancelAll(REQUEST_TAG)
+        VolleySingleton.getInstance(this).cancelRequests(REQUEST_TAG)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -112,9 +110,9 @@ class ProfileActivity : AppCompatActivity() {
                 Toast.makeText(this, it.localizedMessage ?: it.message, Toast.LENGTH_SHORT).show()
             }
         )
-        request.setShouldCache(false)
-        request.tag = REQUEST_TAG
-        requestQueue.add(request)
+            .setShouldCache(false)
+            .setTag(REQUEST_TAG)
+        VolleySingleton.getInstance(this).addToRequestQueue(request)
     }
 
     private fun displayProfile(profile: Profile) {

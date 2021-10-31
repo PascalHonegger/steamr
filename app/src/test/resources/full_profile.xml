@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><profile>
     <steamID64>76561198048156520</steamID64>
     <steamID><![CDATA[Rordon Gamsay]]></steamID>
-    <onlineState>online</onlineState>
-    <stateMessage><![CDATA[Online]]></stateMessage>
+    <onlineState>in-game</onlineState>
+    <stateMessage><![CDATA[In-Game<br/>Hades]]></stateMessage>
     <privacyState>public</privacyState>
     <visibilityState>3</visibilityState>
     <avatarIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/14/146d4c35ac4c4ec05a4ddab695e65affd3775615.jpg]]></avatarIcon>
@@ -12,13 +12,21 @@
     <tradeBanState>None</tradeBanState>
     <isLimitedAccount>0</isLimitedAccount>
     <customURL><![CDATA[stupsi]]></customURL>
+    <inGameServerIP></inGameServerIP>
+    <inGameInfo>
+        <gameName><![CDATA[Hades]]></gameName>
+        <gameLink><![CDATA[https://steamcommunity.com/app/1145360]]></gameLink>
+        <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1145360/8a3fca36a00883e8066263ad35dd15d77a1f9abc.jpg]]></gameIcon>
+        <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/1145360/capsule_184x69.jpg]]></gameLogo>
+        <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/1145360/capsule_184x69.jpg]]></gameLogoSmall>
+    </inGameInfo>
     <memberSince>September 5, 2011</memberSince>
     <steamRating></steamRating>
     <hoursPlayed2Wk>0.0</hoursPlayed2Wk>
     <headline><![CDATA[]]></headline>
     <location><![CDATA[Switzerland]]></location>
     <realname><![CDATA[Pascal]]></realname>
-    <summary><![CDATA[<img src="https://community.akamai.steamstatic.com/economy/emoticon/B1" alt=":B1:" class="emoticon">]]></summary>
+    <summary><![CDATA[My name is Yoshikage Kira. I'm 33 years old. My house is in the northeast section of Morioh, where all the villas are, and I am not married. I work as an employee for the Kame Yu department stores, and I get home every day by 8 PM at the latest. I don't smoke, but I occasionally drink. I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what. After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning. Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up. I'm trying to explain that I'm a person who wishes to live a very quiet life. I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night. That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I wouldn't lose to anyone.<br><img src="https://community.akamai.steamstatic.com/economy/emoticon/B1" alt=":B1:" class="emoticon">]]></summary>
     <mostPlayedGames>
         <mostPlayedGame>
             <gameName><![CDATA[Counter-Strike: Global Offensive]]></gameName>
@@ -26,28 +34,9 @@
             <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/730/69f7ebe2735c366c65c0b33dae00e12dc40edbe4.jpg]]></gameIcon>
             <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/730/capsule_184x69.jpg]]></gameLogo>
             <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/730/capsule_184x69.jpg]]></gameLogoSmall>
-            <hoursPlayed>7.3</hoursPlayed>
-            <hoursOnRecord>1,180</hoursOnRecord>
+            <hoursPlayed>12.7</hoursPlayed>
+            <hoursOnRecord>1,190</hoursOnRecord>
             <statsName><![CDATA[CSGO]]></statsName>
-        </mostPlayedGame>
-        <mostPlayedGame>
-            <gameName><![CDATA[No Man's Sky]]></gameName>
-            <gameLink><![CDATA[https://steamcommunity.com/app/275850]]></gameLink>
-            <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/275850/fccb20f309ac5ae05b3cb4576a8a3357edf86f2e.jpg]]></gameIcon>
-            <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/275850/capsule_184x69.jpg]]></gameLogo>
-            <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/275850/capsule_184x69.jpg]]></gameLogoSmall>
-            <hoursPlayed>4.8</hoursPlayed>
-            <hoursOnRecord>4.8</hoursOnRecord>
-            <statsName><![CDATA[275850]]></statsName>
-        </mostPlayedGame>
-        <mostPlayedGame>
-            <gameName><![CDATA[Dota 2]]></gameName>
-            <gameLink><![CDATA[https://steamcommunity.com/app/570]]></gameLink>
-            <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/570/0bbb630d63262dd66d2fdd0f7d37e8661a410075.jpg]]></gameIcon>
-            <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/570/capsule_184x69.jpg]]></gameLogo>
-            <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/570/capsule_184x69.jpg]]></gameLogoSmall>
-            <hoursPlayed>3.8</hoursPlayed>
-            <hoursOnRecord>776</hoursOnRecord>
         </mostPlayedGame>
         <mostPlayedGame>
             <gameName><![CDATA[The Great Ace Attorney Chronicles]]></gameName>
@@ -55,19 +44,28 @@
             <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1158850/6987f90c13dcfa24244e32998db8cdcd9b40c44a.jpg]]></gameIcon>
             <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/1158850/capsule_184x69.jpg]]></gameLogo>
             <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/1158850/capsule_184x69.jpg]]></gameLogoSmall>
-            <hoursPlayed>3.1</hoursPlayed>
-            <hoursOnRecord>27</hoursOnRecord>
+            <hoursPlayed>11.5</hoursPlayed>
+            <hoursOnRecord>37</hoursOnRecord>
             <statsName><![CDATA[1158850]]></statsName>
         </mostPlayedGame>
         <mostPlayedGame>
-            <gameName><![CDATA[Beat Saber]]></gameName>
-            <gameLink><![CDATA[https://steamcommunity.com/app/620980]]></gameLink>
-            <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/620980/d2922f271fca9579ecdcc07408cee13d87ca4148.jpg]]></gameIcon>
-            <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/620980/capsule_184x69.jpg]]></gameLogo>
-            <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/620980/capsule_184x69.jpg]]></gameLogoSmall>
-            <hoursPlayed>2.4</hoursPlayed>
-            <hoursOnRecord>75</hoursOnRecord>
-            <statsName><![CDATA[620980]]></statsName>
+            <gameName><![CDATA[Dota 2]]></gameName>
+            <gameLink><![CDATA[https://steamcommunity.com/app/570]]></gameLink>
+            <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/570/0bbb630d63262dd66d2fdd0f7d37e8661a410075.jpg]]></gameIcon>
+            <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/570/capsule_184x69.jpg]]></gameLogo>
+            <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/570/capsule_184x69.jpg]]></gameLogoSmall>
+            <hoursPlayed>3.5</hoursPlayed>
+            <hoursOnRecord>780</hoursOnRecord>
+        </mostPlayedGame>
+        <mostPlayedGame>
+            <gameName><![CDATA[No Man's Sky]]></gameName>
+            <gameLink><![CDATA[https://steamcommunity.com/app/275850]]></gameLink>
+            <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/275850/fccb20f309ac5ae05b3cb4576a8a3357edf86f2e.jpg]]></gameIcon>
+            <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/275850/capsule_184x69.jpg]]></gameLogo>
+            <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/275850/capsule_184x69.jpg]]></gameLogoSmall>
+            <hoursPlayed>3.2</hoursPlayed>
+            <hoursOnRecord>6.2</hoursOnRecord>
+            <statsName><![CDATA[275850]]></statsName>
         </mostPlayedGame>
         <mostPlayedGame>
             <gameName><![CDATA[Hades]]></gameName>
@@ -75,9 +73,19 @@
             <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1145360/8a3fca36a00883e8066263ad35dd15d77a1f9abc.jpg]]></gameIcon>
             <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/1145360/capsule_184x69.jpg]]></gameLogo>
             <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/1145360/capsule_184x69.jpg]]></gameLogoSmall>
-            <hoursPlayed>1.0</hoursPlayed>
-            <hoursOnRecord>28</hoursOnRecord>
+            <hoursPlayed>2.5</hoursPlayed>
+            <hoursOnRecord>31</hoursOnRecord>
             <statsName><![CDATA[1145360]]></statsName>
+        </mostPlayedGame>
+        <mostPlayedGame>
+            <gameName><![CDATA[Beat Saber]]></gameName>
+            <gameLink><![CDATA[https://steamcommunity.com/app/620980]]></gameLink>
+            <gameIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/620980/d2922f271fca9579ecdcc07408cee13d87ca4148.jpg]]></gameIcon>
+            <gameLogo><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/620980/capsule_184x69.jpg]]></gameLogo>
+            <gameLogoSmall><![CDATA[https://cdn.akamai.steamstatic.com/steam/apps/620980/capsule_184x69.jpg]]></gameLogoSmall>
+            <hoursPlayed>2.1</hoursPlayed>
+            <hoursOnRecord>77</hoursOnRecord>
+            <statsName><![CDATA[620980]]></statsName>
         </mostPlayedGame>
     </mostPlayedGames>
 
@@ -92,10 +100,10 @@
             <avatarIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/4f/4ff6a96268bb05113b88faf1c9688301e8cfa706.jpg]]></avatarIcon>
             <avatarMedium><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/4f/4ff6a96268bb05113b88faf1c9688301e8cfa706_medium.jpg]]></avatarMedium>
             <avatarFull><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/4f/4ff6a96268bb05113b88faf1c9688301e8cfa706_full.jpg]]></avatarFull>
-            <memberCount>1229096</memberCount>
-            <membersInChat>186242</membersInChat>
-            <membersInGame>68957</membersInGame>
-            <membersOnline>305293</membersOnline>
+            <memberCount>1234723</memberCount>
+            <membersInChat>187561</membersInChat>
+            <membersInGame>77370</membersInGame>
+            <membersOnline>312415</membersOnline>
         </group>
         <group isPrimary="0">
             <groupID64>103582791434277245</groupID64>
@@ -106,10 +114,10 @@
             <avatarIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/2c/2ce81e0b8f1c748f86d1ca4230a7f45dd0b906b1.jpg]]></avatarIcon>
             <avatarMedium><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/2c/2ce81e0b8f1c748f86d1ca4230a7f45dd0b906b1_medium.jpg]]></avatarMedium>
             <avatarFull><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/2c/2ce81e0b8f1c748f86d1ca4230a7f45dd0b906b1_full.jpg]]></avatarFull>
-            <memberCount>1869066</memberCount>
-            <membersInChat>89349</membersInChat>
-            <membersInGame>50195</membersInGame>
-            <membersOnline>394461</membersOnline>
+            <memberCount>1869940</memberCount>
+            <membersInChat>90064</membersInChat>
+            <membersInGame>54059</membersInGame>
+            <membersOnline>386111</membersOnline>
         </group>
         <group isPrimary="0">
             <groupID64>103582791434672565</groupID64>
@@ -120,10 +128,10 @@
             <avatarIcon><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/e3/e34e65ef2ef16093d4428c930fbcc42490522ed3.jpg]]></avatarIcon>
             <avatarMedium><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/e3/e34e65ef2ef16093d4428c930fbcc42490522ed3_medium.jpg]]></avatarMedium>
             <avatarFull><![CDATA[https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/e3/e34e65ef2ef16093d4428c930fbcc42490522ed3_full.jpg]]></avatarFull>
-            <memberCount>1718106</memberCount>
-            <membersInChat>29525</membersInChat>
-            <membersInGame>51602</membersInGame>
-            <membersOnline>438254</membersOnline>
+            <memberCount>1718061</memberCount>
+            <membersInChat>29615</membersInChat>
+            <membersInGame>54178</membersInGame>
+            <membersOnline>429711</membersOnline>
         </group>
         <group isPrimary="0">
             <groupID64>103582791435109821</groupID64>
