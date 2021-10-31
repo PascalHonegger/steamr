@@ -5,4 +5,5 @@
     <color name="secondaryVariantColor">#73e8ff</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
+    <color name="dialogPrimaryColor">@color/secondaryColor</color>
 </resources>
