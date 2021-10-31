@@ -37,13 +37,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_between_elements"
-        app:layout_constraintEnd_toStartOf="@+id/gameIconImageView"
+        app:layout_constraintEnd_toStartOf="@+id/gameBannerImageView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toTopOf="@+id/avatarImageView" />
 
     <com.android.volley.toolbox.NetworkImageView
-        android:id="@+id/gameIconImageView"
+        android:id="@+id/gameBannerImageView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/margin_page"
@@ -56,7 +56,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_between_elements"
-        app:layout_constraintEnd_toEndOf="@+id/onlineStateTextView"
+        app:layout_constraintEnd_toEndOf="@+id/gameBannerImageView"
         app:layout_constraintStart_toStartOf="@+id/onlineStateTextView"
         app:layout_constraintTop_toBottomOf="@+id/onlineStateTextView" />
 
